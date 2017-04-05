@@ -5,10 +5,16 @@ description:
   A simply way to extend numerical types to add infinity.
   .
   Includes 4 data types:
-  1) Both infinities: GADT
-  2) Positive infinity only: GADT
-  3) Both infinities, represented as upper and lower bound of type (well almost)
-  4) Positive infinity only, represented as upper bound of type
+  .
+  1. Both infinities: GADT
+  .
+  2. Positive infinity only: GADT
+  .
+  3. Both infinities, represented as upper and lower bound of type (well almost)
+  .
+  4. Positive infinity only, represented as upper bound of type
+  .
+  There's also rewrite rules in an attempt to make this all work as efficiently as possible (although unbenchmarked and untested).
   .
 license: MIT
 license-file: LICENSE

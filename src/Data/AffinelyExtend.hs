@@ -14,10 +14,10 @@
 {-|
 This package has four ways to extend any numerical type to add infinities:
 
-1) Both infinities with GADT: 'AffinelyExtendBoth', creation: 'affinelyExtendBoth'
-2) Positive infinity only with GADT: 'AffinelyExtendPos', creation: 'affinelyExtendPos'
-3) Both infinities with upper/lower bounds as infinity: 'AffinelyExtendBoundedBoth', creation: 'affinelyExtendBoundedBoth'
-4) Positive infinities only with upper bound as infinity: 'AffinelyExtendBoundedPos', creation: 'affinelyExtendBoundedPos'
+1. Both infinities with GADT: 'AffinelyExtendBoth', creation: 'affinelyExtendBoth'
+2. Positive infinity only with GADT: 'AffinelyExtendPos', creation: 'affinelyExtendPos'
+3. Both infinities with upper/lower bounds as infinity: 'AffinelyExtendBoundedBoth', creation: 'affinelyExtendBoundedBoth'
+4. Positive infinities only with upper bound as infinity: 'AffinelyExtendBoundedPos', creation: 'affinelyExtendBoundedPos'
 
 The function 'affinelyExtend' is a generic creation function that calls one of the above based on the derived type of the output.
 
@@ -39,9 +39,9 @@ For most operations, the bounded types simply unpack to the unbounded types, per
 
 But there's two optimisations to this process
 
-1) For operations like 'negate', there is no need for special checking for infinities, so the unbounded types just apply negate directly
+1. For operations like 'negate', there is no need for special checking for infinities, so the unbounded types just apply negate directly
 to their own representation.
-2) There's rewrite rules that remove 'unpack . pack' sequences.
+2. There's rewrite rules that remove 'unpack . pack' sequences.
 
 There's competing advantages to both formats. The bounded formats obviously take up less storage space, and can perform some operations
 like 'negate' without a pattern match.
@@ -53,7 +53,7 @@ So the rewrite rules are intended to help chains of operations use the "unpacked
 infinity checks to the first operation in the sequence (as after that the compiler should be able to statically prove at compile time
 that the latter operations are/are not infinities.
 
-This package is currently without a test suite and needs more documentation, so if you find any bugs, please report them. 
+This package is currently without a test suite and needs more documentation, so if you find any bugs, please report them.
 -}
 module Data.AffinelyExtend (
   AffinelyExtend(NegativeInfinity, Finite, PositiveInfinity), affinelyExtend,
